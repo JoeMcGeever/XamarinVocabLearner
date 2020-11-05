@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VocabLearner.SignUpPage">
+    <ContentPage.Content>
+        <StackLayout>
+
+            <Frame BackgroundColor="Green" Padding="24" CornerRadius="0">
+                <Label Text="Sign Up" HorizontalTextAlignment="Center" TextColor="White" FontSize="18"/>
+            </Frame>
+
+            <StackLayout Orientation="Vertical" VerticalOptions="StartAndExpand">
+                
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="16" Padding="30,24,30,0" Text="Username: " FontAttributes="Bold"/>
+                    <Entry x:Name ="usernameEntry"
+                        VerticalOptions="End"
+                        Placeholder="Username" />
+                 </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal">
+                    <Label FontSize="16" Padding="30,24,30,0" Text="Password: " FontAttributes="Bold"/>
+                    <Entry x:Name="passwordEntry"
+                        VerticalOptions="End"
+                        Placeholder="Password" />
+                </StackLayout>
+
+
+                <Button Text="Sign up"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    Clicked="SignUp_OnClicked">
+                </Button>
+                
+            </StackLayout>
+
+
+
+            <StackLayout Orientation="Vertical" VerticalOptions="End">
+                <Label Text="Already have an account?" HorizontalTextAlignment="Center" FontSize="16" Padding="150,10,150,0"/>
+
+                <Button Text="Log in" BackgroundColor="Red"
+                    Clicked="LogIn_OnClicked">
+                </Button>
+
+            </StackLayout>
+
+
+
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

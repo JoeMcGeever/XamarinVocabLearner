@@ -10,8 +10,14 @@ namespace VocabLearner
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainPage());
         }
+
+        public static string loggedInUser //the current logged in user
+        {
+            get; set;
+        }
+
 
         protected override void OnStart()
         {
