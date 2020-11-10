@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VocabLearner.MainViews.EditPage"
+             Title="Edit">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Start">
+                <Label FontSize="16" Padding="30,24,30,0" Text="Search for words to edit:" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <StackLayout Orientation="Vertical">
+                        <Entry x:Name ="searchWord" WidthRequest="100"/>
+                        <Button Text="Search"
+                            VerticalOptions="End"
+                            HorizontalOptions="Center"
+                            Clicked="Search_OnClicked">
+                        </Button>
+                    </StackLayout>
+                </StackLayout>
+
+
+                
+                
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                    <StackLayout Orientation="Vertical">
+                        <Label FontSize="16" Padding="30,24,30,0" Text="Source: " FontAttributes="Bold"/>
+                        <Entry x:Name ="sourceWord"
+                               Placeholder="BIND HERE"
+                               WidthRequest="100"/>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Vertical">
+                        <Label FontSize="16" Padding="30,24,30,0" Text="Transation: " FontAttributes="Bold"/>
+                        <Entry x:Name="translatedWord"
+                               Placeholder="BIND HERE"
+                               WidthRequest="100"/>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button Text="Delete"
+                            HorizontalOptions="Center"
+                            Clicked="Delete_OnClicked">
+                    </Button>
+                    <Button Text="Edit"
+                            HorizontalOptions="Center"
+                            Clicked="Edit_OnClicked">
+                    </Button>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" VerticalOptions="End">
+                    <Button Text="Recently Added"
+                            HorizontalOptions="Center"
+                            Clicked="Recently_Added_OnClicked">
+                    </Button>
+                </StackLayout>
+
+
+            </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

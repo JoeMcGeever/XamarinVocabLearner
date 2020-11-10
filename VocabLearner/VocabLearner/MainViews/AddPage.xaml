@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VocabLearner.MainViews.AddPage"
+             Title="Add">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Start">
+                <Label FontSize="16" Padding="30,24,30,0" Text="Add new words and their meanings here:" HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                    <StackLayout Orientation="Vertical">
+                    <Label FontSize="16" Padding="30,24,30,0" Text="Source: " FontAttributes="Bold"/>
+                    <Entry x:Name ="sourceWord"
+                        WidthRequest="100"/>
+                    </StackLayout>
+
+
+                    <StackLayout Orientation="Vertical">
+                        <Label FontSize="16" Padding="30,24,30,0" Text="Transation: " FontAttributes="Bold"/>
+                        <Entry x:Name="translatedWord"
+                        WidthRequest="100"/>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <Button Text="Add"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    Clicked="Add_OnClicked">
+                </Button>
+
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
