@@ -1,11 +1,24 @@
 ﻿using System;
+using System.IO;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace VocabLearner
 {
     public partial class App : Application
     {
+        static LocalDB database;
+
+        public static LocalDB Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new LocalDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "words.db3"));
+                }
+                return database;
+            }
+        }
         public App()
         {
             InitializeComponent();

@@ -15,7 +15,7 @@
                         <Button Text="Search"
                             VerticalOptions="End"
                             HorizontalOptions="Center"
-                            Clicked="Search_OnClicked">
+                            Clicked="Search_OnClickedAsync">
                         </Button>
                     </StackLayout>
                 </StackLayout>
@@ -28,15 +28,15 @@
                     <StackLayout Orientation="Vertical">
                         <Label FontSize="16" Padding="30,24,30,0" Text="Source: " FontAttributes="Bold"/>
                         <Entry x:Name ="sourceWord"
-                               Placeholder="BIND HERE"
+                               Text="{Binding sourceWord}"
                                WidthRequest="100"/>
                     </StackLayout>
 
 
                     <StackLayout Orientation="Vertical">
-                        <Label FontSize="16" Padding="30,24,30,0" Text="Transation: " FontAttributes="Bold"/>
+                        <Label FontSize="16" Padding="30,24,30,0" Text="Translation: " FontAttributes="Bold"/>
                         <Entry x:Name="translatedWord"
-                               Placeholder="BIND HERE"
+                               Text="{Binding translatedWord}"
                                WidthRequest="100"/>
                     </StackLayout>
                 </StackLayout>
