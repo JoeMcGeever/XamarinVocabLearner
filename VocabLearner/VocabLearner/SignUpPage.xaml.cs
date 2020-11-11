@@ -12,6 +12,9 @@ namespace VocabLearner
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SignUpPage : ContentPage
     {
+
+        UserDB usersDatabase = new UserDB();
+
         public SignUpPage()
         {
             InitializeComponent();
@@ -32,9 +35,16 @@ namespace VocabLearner
             if (!string.IsNullOrWhiteSpace(usernameEntry.Text) //if the username entry field
             && !string.IsNullOrWhiteSpace(passwordEntry.Text)) //or password ones are not empty
             {
-                //save to xampp database here
 
-                await Application.Current.MainPage.Navigation.PopAsync(); //pop this view off the current navigation stack
+
+                if(await usersDatabase.Signup(usernameEntry.Text, passwordEntry.Text, "pig.png")) //save to firebase database here
+                {
+                    await Application.Current.MainPage.Navigation.PopAsync(); //pop this view off the current navigation stack
+                }
+                else
+                {
+                    await DisplayAlert("Error!", "Something went wrong", "Ok");
+                }
             }
             else
             {

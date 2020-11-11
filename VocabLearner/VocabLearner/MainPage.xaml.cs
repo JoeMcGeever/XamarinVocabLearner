@@ -43,7 +43,7 @@ namespace VocabLearner
             {
                 //set username as userdefaults?
 
-                if (database.connect())
+                if (await database.Login(usernameEntry.Text, passwordEntry.Text))
                 {
                     App.loggedInUser = Convert.ToString(usernameEntry.Text);
                     await Navigation.PushAsync(new HomeTab());
