@@ -33,21 +33,30 @@ namespace VocabLearner
             await firebase
               .Child("Users")
               .OnceAsync<User>();
-            return allPersons.Where(a => a.username == username).FirstOrDefault();
+
+
+            return allPersons.Where(a => (a.username == username) && (a.password == password)).FirstOrDefault(); //return the user which matches the password as well as the username
         }
 
         public async Task<bool> Signup(string username, string password, string profilePic)
         {
 
+            //if user already exists
+            var allPersons = await GetAllPersons();
+            await firebase
+              .Child("Users")
+              .OnceAsync<User>();
 
-
-            //CALL LOGIN, IF NOT NULL -- NEED TO THROW ERROR (USERNAME TAKEN)
-
+            if(allPersons.Where(a => a.username == username).FirstOrDefault() != null) //if a person has the same username
+            {
+                return false;
+            }
 
 
             await firebase
               .Child("Users")
-              .PostAsync(new User() { username = username, password = password, profilePic = profilePic });
+              .PostAsync(new User() { username = username, password = password, profilePic = profilePic }); //post request to dB server
+            //creates a new user
 
 
             return true;

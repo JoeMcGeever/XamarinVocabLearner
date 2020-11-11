@@ -41,16 +41,18 @@ namespace VocabLearner
             if (!string.IsNullOrWhiteSpace(usernameEntry.Text) //if the username entry field
             && !string.IsNullOrWhiteSpace(passwordEntry.Text)) //or password ones are not empty
             {
-                //set username as userdefaults?
 
-                if (await database.Login(usernameEntry.Text, passwordEntry.Text))
+                User loggedInUser = await database.Login(usernameEntry.Text, passwordEntry.Text);
+
+                if (loggedInUser != null) //if a loggedInUser is present
                 {
+                    // set username and profile pic to userdefaults
                     App.loggedInUser = Convert.ToString(usernameEntry.Text);
                     await Navigation.PushAsync(new HomeTab());
                 }
                 else
                 {
-                    await DisplayAlert("Failed!", "Database connection fail", "Ok");
+                    await DisplayAlert("Failed!", "User not found", "Ok");
 
                 }
 

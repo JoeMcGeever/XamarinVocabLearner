@@ -43,7 +43,7 @@ namespace VocabLearner
                 }
                 else
                 {
-                    await DisplayAlert("Error!", "Something went wrong", "Ok");
+                    await DisplayAlert("Error!", "Username already taken", "Ok");
                 }
             }
             else
