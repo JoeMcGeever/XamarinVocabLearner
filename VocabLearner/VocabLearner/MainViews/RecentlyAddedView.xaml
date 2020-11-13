@@ -10,7 +10,7 @@
               
     <ListView.ItemTemplate>
         <DataTemplate>
-            <TextCell Text="{Binding .}" />
+            <TextCell Text="{Binding sourceWord}" TextColor="black"/>
         </DataTemplate>
     </ListView.ItemTemplate>
       

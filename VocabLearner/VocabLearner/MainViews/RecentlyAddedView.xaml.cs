@@ -10,7 +10,7 @@ namespace VocabLearner.MainViews
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecentlyAddedView : ContentPage
     {
-        public ObservableCollection<string> Items = new ObservableCollection<string>();
+        public ObservableCollection<Word> Items = new ObservableCollection<Word>();
 
         RecentlyAdded recentController = new RecentlyAdded();
         public RecentlyAddedView()
@@ -18,33 +18,24 @@ namespace VocabLearner.MainViews
             InitializeComponent();
 
 
-         //   Word newWord = new Word
-         //   {
-         //       sourceWord = "test",
-         //       translatedWord = "test"
-         //   };
 
-         //\   recentController.AddNewWord(newWord);
-
-            List<Word> recentWords = recentController.GetAllWords();
-
-
-
-            //           Items = new ObservableCollection<Word>
-            //           {
-            //               "Item 1",
-            //               "Item 2",
-            //               "Item 3",
-            //               "Item 4",
-            //               "Item 5"
-            //         
-           // Items = new ObservableCollection<string>();
-            if (recentWords != null)
+            Word newWord = new Word()
             {
-                for (int i = 0; i < recentWords.Count; i++)
+                sourceWord = "testsource",
+                translatedWord = "testTrans"
+            };
+
+            recentController.AddNewWord(newWord);
+
+
+            List<Word> recentWords = recentController.GetAllWords(); //get recently added words
+
+            if (recentWords != null) //if the list isn't null
+            {
+                for (int i = 0; i < recentWords.Count; i++) //iterate through
                 {
-                  //  Console.WriteLine(recentWords[i].sourceWord + " - " + recentWords[i].translatedWord);
-                    Items.Add(recentWords[i].sourceWord + " - " + recentWords[i].translatedWord);
+                    Items.Add(recentWords[i]);
+                    //Items.Add("Source: " + recentWords[i].sourceWord + " - Translation: " + recentWords[i].translatedWord); //append to the list of items to be diplayed
                 }
             }
             else
