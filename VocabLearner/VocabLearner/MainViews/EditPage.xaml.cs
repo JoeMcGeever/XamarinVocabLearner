@@ -16,6 +16,8 @@ namespace VocabLearner.MainViews
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class EditPage : ContentPage, INotifyPropertyChanged
     {
+        private string currentSearchedWord;
+        private Word currentWordPair;
 
         private Word transWord;
         public Word TransWordBind
@@ -36,25 +38,44 @@ namespace VocabLearner.MainViews
         {
 
             Word wordPair = new Word();
-            wordPair.sourceWord = "BIND TEST";
-            wordPair.translatedWord = "BIND TEST";
+            wordPair.sourceWord = "";
+            wordPair.translatedWord = "";
             TransWordBind = wordPair;
 
             BindingContext = wordPair;
             InitializeComponent();
         }
 
-        private void Recently_Added_OnClicked(object sender, EventArgs e)
+        private async void Recently_Added_OnClickedAsync(object sender, EventArgs e)
         {
-
+            await Navigation.PushAsync(new RecentlyAddedView());
         }
-        private void Delete_OnClicked(object sender, EventArgs e)
+        private async void Delete_OnClickedAsync(object sender, EventArgs e)
         {
+            if (currentSearchedWord != null) //currentSearchedWord only contains the most current word that is in the database
+            {
 
+                _ = await App.Database.DeleteWordsAsync(currentWordPair); //deletes the word from the database
+                await DisplayAlert("Sucess!", currentWordPair.sourceWord + " = " + currentWordPair.translatedWord + " has now been deleted", "Ok");
+                currentWordPair = null; //refresh current word pair
+                BindingContext = null; // and bindings
+            }
         }
-        private void Edit_OnClicked(object sender, EventArgs e)
+        private async void Edit_OnClickedAsync(object sender, EventArgs e)
         {
+            if (currentSearchedWord != null) //currentSearchedWord only contains the most current word that is in the database
+            {
+                Word newWord = new Word();
+                newWord.sourceWord = sourceWord.Text;
+                newWord.translatedWord = translatedWord.Text;
+                _ = await App.Database.DeleteWordsAsync(currentWordPair);
+                _ = await App.Database.SaveWordsAsync(newWord);
 
+                await DisplayAlert("Sucess!", newWord.sourceWord + " = " + newWord.translatedWord + " has now been saved", "Ok");
+                currentWordPair = null; // refresh the current word pair
+                BindingContext = null; //reset the bindings
+
+            }
         }
         private async void Search_OnClickedAsync(object sender, EventArgs e)
         {
@@ -71,8 +92,19 @@ namespace VocabLearner.MainViews
             newWord.sourceWord = searchWord.Text;
             newWord.translatedWord = await App.Database.GetOneWord(searchWord.Text);
 
+            if(newWord.translatedWord != null) //if the response from the search is in the database
+            {
+                currentSearchedWord = searchWord.Text; //set the current searched word to be the users searched word
+                currentWordPair = newWord;
+                return newWord;
+            } 
+            else //otherwise
+            {
+                currentSearchedWord = null; //set to null so user doesnt accidently edit /delete the previously added word
+            }
 
-            return newWord;
+
+            return null;
         }
 
 

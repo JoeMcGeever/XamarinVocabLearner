@@ -32,7 +32,6 @@ namespace VocabLearner
                     return item.translatedWord;
                 }
             }
-
             return null;
 
         }
@@ -40,6 +39,11 @@ namespace VocabLearner
         public Task<int> SaveWordsAsync(Word words) //saves the words to the database
         {
             return _database.InsertAsync(words);
+        }
+
+        public Task<int> DeleteWordsAsync(Word words) //delete a word pair from the database
+        {
+            return _database.DeleteAsync(words);
         }
     }
 }

@@ -7,7 +7,7 @@ namespace VocabLearner
     public partial class App : Application
     {
         static LocalDB database;
-
+        public static string FolderPath { get; private set; }
         public static LocalDB Database
         {
             get
@@ -22,7 +22,7 @@ namespace VocabLearner
         public App()
         {
             InitializeComponent();
-
+            //FolderPath =Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)); //folder path for my recently added file
             MainPage = new NavigationPage(new MainPage());
         }
 

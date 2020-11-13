@@ -45,11 +45,11 @@
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <Button Text="Delete"
                             HorizontalOptions="Center"
-                            Clicked="Delete_OnClicked">
+                            Clicked="Delete_OnClickedAsync">
                     </Button>
                     <Button Text="Edit"
                             HorizontalOptions="Center"
-                            Clicked="Edit_OnClicked">
+                            Clicked="Edit_OnClickedAsync">
                     </Button>
 
                 </StackLayout>
@@ -57,7 +57,7 @@
                 <StackLayout Orientation="Vertical" VerticalOptions="End">
                     <Button Text="Recently Added"
                             HorizontalOptions="Center"
-                            Clicked="Recently_Added_OnClicked">
+                            Clicked="Recently_Added_OnClickedAsync">
                     </Button>
                 </StackLayout>
 

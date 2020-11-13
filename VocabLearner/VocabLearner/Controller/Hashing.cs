@@ -5,7 +5,7 @@ using System.Text;
 
 namespace VocabLearner.Controller
 {
-    public class PasswordHash
+    public class PasswordHash //helper class taken from http://csharptest.net/470/another-example-of-how-to-store-a-salted-password-hash/
     {
         const int SaltSize = 16, HashSize = 20, HashIter = 10000;
         readonly byte[] _salt, _hash;
