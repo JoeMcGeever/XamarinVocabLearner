@@ -7,29 +7,38 @@
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement">
     <!--Built in Cells-->
-              
+
+        <!--
     <ListView.ItemTemplate>
         <DataTemplate>
             <TextCell Text="{Binding sourceWord}" TextColor="black"/>
         </DataTemplate>
     </ListView.ItemTemplate>
-      
+      -->
     
     <!--Custom View Cells-->
-        <!--
+        
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout>
-                        <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-                        <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                        <Label Text="{Binding sourceWord}" 
+                               FontSize="20" 
+                               FontAttributes="Bold"
+                               HorizontalOptions="Start"/>
+                        <Label Text=" = "
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               HorizontalOptions="Center"/>
+                        <Label Text="{Binding translatedWord}" 
+                               FontAttributes="Bold"
+                               FontSize="20"
+                               HorizontalOptions="End"/>
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-        -->
+        
 
 
     </ListView>
