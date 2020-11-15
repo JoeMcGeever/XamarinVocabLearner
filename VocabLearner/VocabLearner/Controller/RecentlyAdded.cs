@@ -25,5 +25,24 @@ namespace VocabLearner.Controller
             }
         }
 
+        public static void DeleteWord(Word wordToBeDeleted) //deletes the word from the list
+        {
+            try
+            {
+                for (int i = 0; i < recentWords.Count; i++) // Loop through List with for as .Remove() won't work as the objects are different instances (despite holding the same value)
+                {
+                    Console.WriteLine(recentWords[i]);
+                    if (recentWords[i].sourceWord.Equals(wordToBeDeleted.sourceWord))
+                    {
+                        recentWords.Remove(recentWords[i]); // remove from recently added list
+                    }
+                }
+
+            } catch
+            {
+                Console.WriteLine("Word was not in recently added");
+            }
+        }
+
     }
 }

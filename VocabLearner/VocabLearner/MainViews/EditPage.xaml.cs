@@ -57,6 +57,9 @@ namespace VocabLearner.MainViews
 
                 _ = await App.Database.DeleteWordsAsync(currentWordPair); //deletes the word from the database
                 await DisplayAlert("Sucess!", currentWordPair.sourceWord + " = " + currentWordPair.translatedWord + " has now been deleted", "Ok");
+
+
+
                 currentWordPair = null; //refresh current word pair
                 BindingContext = null; // and bindings
             }

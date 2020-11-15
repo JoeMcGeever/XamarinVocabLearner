@@ -1,27 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="VocabLearner.MainViews.RecentlyAddedView">
-  <ListView x:Name="MyListView"
-            ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
-            CachingStrategy="RecycleElement">
-    <!--Built in Cells-->
-
-        <!--
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <TextCell Text="{Binding sourceWord}" TextColor="black"/>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-      -->
+             x:Class="VocabLearner.MainViews.RecentlyAddedView"
+             Title="Recently Added: Hold to delete">
     
-    <!--Custom View Cells-->
-        
+    <ListView x:Name="MyListView"
+            ItemsSource="{Binding .}"
+            CachingStrategy="RecycleElement"
+            IsPullToRefreshEnabled="true">
+
+
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <ViewCell.ContextActions>
+                    <MenuItem Clicked="OnDelete"
+                      CommandParameter="{Binding sourceWord}"
+                      Text="Delete" />
+                </ViewCell.ContextActions>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
                         <Label Text="{Binding sourceWord}" 
                                FontSize="20" 
                                FontAttributes="Bold"

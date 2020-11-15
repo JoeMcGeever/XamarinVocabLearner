@@ -11,14 +11,11 @@ namespace VocabLearner.MainViews
     public partial class RecentlyAddedView : ContentPage
     {
         public ObservableCollection<Word> Items = new ObservableCollection<Word>();
+
         public RecentlyAddedView()
         {
             InitializeComponent();
-
-
-
             List<Word> recentWords = RecentlyAdded.GetAllWords(); //get recently added words
-
             if (recentWords != null) //if the list isn't null
             {
                 for (int i = 0; i < recentWords.Count; i++) //iterate through
@@ -31,22 +28,26 @@ namespace VocabLearner.MainViews
             {
                 Console.WriteLine("No words available");
             }
-
-
             MyListView.ItemsSource = Items;
-
-
         }
 
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void OnDelete(object sender, EventArgs e)
         {
-            if (e.Item == null)
-                return;
+            var mi = ((MenuItem)sender);
+            try
+            {
+                Word wordToDelete = (Word)mi.CommandParameter;
 
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
+                _ = await App.Database.DeleteWordsAsync(wordToDelete); //deletes the word from the database
 
-            //Deselect Item
-            ((ListView)sender).SelectedItem = null;
+                await DisplayAlert("Deleted", wordToDelete.sourceWord + " - " + wordToDelete.translatedWord + " delete context action", "OK");
+
+            } catch
+            {
+                await DisplayAlert("Error", "Error deleting word, try searching in edit page instead", "OK");
+
+            }
+
         }
     }
 }

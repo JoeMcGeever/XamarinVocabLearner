@@ -46,6 +46,7 @@ namespace VocabLearner
 
         public Task<int> DeleteWordsAsync(Word words) //delete a word pair from the database
         {
+            RecentlyAdded.DeleteWord(words);
             return _database.DeleteAsync(words);
         }
     }
