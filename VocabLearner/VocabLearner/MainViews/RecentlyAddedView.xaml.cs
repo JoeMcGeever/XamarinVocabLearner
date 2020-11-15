@@ -40,7 +40,7 @@ namespace VocabLearner.MainViews
 
                 _ = await App.Database.DeleteWordsAsync(wordToDelete); //deletes the word from the database
 
-                await DisplayAlert("Deleted", wordToDelete.sourceWord + " - " + wordToDelete.translatedWord + " delete context action", "OK");
+                await DisplayAlert("Deleted", wordToDelete.sourceWord + " - " + wordToDelete.translatedWord + " was deleted", "OK");
 
             } catch
             {

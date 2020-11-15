@@ -15,7 +15,7 @@
                 <ViewCell>
                 <ViewCell.ContextActions>
                     <MenuItem Clicked="OnDelete"
-                      CommandParameter="{Binding sourceWord}"
+                      CommandParameter="{Binding .}"
                       Text="Delete" />
                 </ViewCell.ContextActions>
                 <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
