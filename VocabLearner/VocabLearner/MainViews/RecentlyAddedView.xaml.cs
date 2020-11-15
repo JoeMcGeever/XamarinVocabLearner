@@ -17,15 +17,6 @@ namespace VocabLearner.MainViews
 
 
 
-         //   Word newWord = new Word()
-         //   {
-         //       sourceWord = "testsource",
-         //       translatedWord = "testTrans"
-         //   };
-
-         //   recentController.AddNewWord(newWord);
-
-
             List<Word> recentWords = RecentlyAdded.GetAllWords(); //get recently added words
 
             if (recentWords != null) //if the list isn't null
