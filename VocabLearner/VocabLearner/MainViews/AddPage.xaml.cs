@@ -42,9 +42,7 @@ namespace VocabLearner.MainViews
                     translatedWord = translatedWord.Text
                 });
 
-                //add to recently added HERE
-
-                await DisplayAlert("Success!", "Word Added - need to add to recently added and reload page", "Ok");
+                await DisplayAlert("Success!", "Word Added", "Ok");
 
 
             }

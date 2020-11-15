@@ -11,24 +11,22 @@ namespace VocabLearner.MainViews
     public partial class RecentlyAddedView : ContentPage
     {
         public ObservableCollection<Word> Items = new ObservableCollection<Word>();
-
-        RecentlyAdded recentController = new RecentlyAdded();
         public RecentlyAddedView()
         {
             InitializeComponent();
 
 
 
-            Word newWord = new Word()
-            {
-                sourceWord = "testsource",
-                translatedWord = "testTrans"
-            };
+         //   Word newWord = new Word()
+         //   {
+         //       sourceWord = "testsource",
+         //       translatedWord = "testTrans"
+         //   };
 
-            recentController.AddNewWord(newWord);
+         //   recentController.AddNewWord(newWord);
 
 
-            List<Word> recentWords = recentController.GetAllWords(); //get recently added words
+            List<Word> recentWords = RecentlyAdded.GetAllWords(); //get recently added words
 
             if (recentWords != null) //if the list isn't null
             {

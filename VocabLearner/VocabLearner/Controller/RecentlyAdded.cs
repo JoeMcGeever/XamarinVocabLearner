@@ -5,18 +5,17 @@ using System.Linq;
 using Xamarin.Forms;
 namespace VocabLearner.Controller
 {
-    public class RecentlyAdded
+    public static class RecentlyAdded //static so recentWords is accesible throughout the application
     {
+        public static List<Word> recentWords = new List<Word>();
 
-        public List<Word> recentWords = new List<Word>();
-
-        public List<Word> GetAllWords()
+        public static List<Word> GetAllWords()
         {
 
             return recentWords; //returns the recent word list
         }
 
-        public void AddNewWord(Word wordToBeAdded)
+        public static void AddNewWord(Word wordToBeAdded)
         {
             recentWords.Add(wordToBeAdded);
             //logic to delete first entry if too long

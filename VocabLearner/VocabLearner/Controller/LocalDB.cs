@@ -38,6 +38,9 @@ namespace VocabLearner
 
         public Task<int> SaveWordsAsync(Word words) //saves the words to the database
         {
+
+            RecentlyAdded.AddNewWord(words); //add the new word to the recently added 
+
             return _database.InsertAsync(words);
         }
 
