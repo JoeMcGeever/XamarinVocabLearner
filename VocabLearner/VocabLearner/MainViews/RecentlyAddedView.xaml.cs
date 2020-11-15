@@ -42,6 +42,9 @@ namespace VocabLearner.MainViews
 
                 await DisplayAlert("Deleted", wordToDelete.sourceWord + " - " + wordToDelete.translatedWord + " was deleted", "OK");
 
+
+                await Application.Current.MainPage.Navigation.PopAsync(); //return to prior page
+
             } catch
             {
                 await DisplayAlert("Error", "Error deleting word, try searching in edit page instead", "OK");
