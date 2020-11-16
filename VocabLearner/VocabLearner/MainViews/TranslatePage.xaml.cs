@@ -65,7 +65,7 @@ namespace VocabLearner.MainViews
                 });
 
                 await DisplayAlert("Success!", "Word Added", "Ok");
-
+                
 
             }
 
