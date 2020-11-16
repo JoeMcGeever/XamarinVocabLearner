@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 
 namespace VocabLearner
@@ -29,6 +30,11 @@ namespace VocabLearner
         }
 
 
+        private async void Capture_OnClicked(object sender, EventArgs e)
+        {
+        
+        }
+
 
         private async void SignUp_OnClicked(object sender, EventArgs e)
         {
@@ -52,6 +58,9 @@ namespace VocabLearner
             }
 
         }
+
+
+
     }
 
 

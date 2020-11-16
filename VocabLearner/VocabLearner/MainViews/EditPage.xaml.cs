@@ -8,7 +8,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using System.ComponentModel; 
 using System.Runtime.CompilerServices;
-using Java.IO;
 using VocabLearner.Controller;
 
 namespace VocabLearner.MainViews

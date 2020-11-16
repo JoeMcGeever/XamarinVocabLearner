@@ -8,6 +8,8 @@ namespace VocabLearner.Controller
 {
     public static class Constants
     {
+
+
         public const string DatabaseFilename = "words.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =

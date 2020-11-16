@@ -35,25 +35,20 @@ namespace VocabLearner
               .OnceAsync<User>();
 
 
-            Console.WriteLine("b4 call");
 
             var correctUsername = allPersons.Where(a => (a.username == username)).FirstOrDefault(); //return the user which matches the password as well as the username
 
-            Console.WriteLine("Wrror");
 
             var userPass = correctUsername.password;
 
-            Console.WriteLine("Doesjt like that");
 
             byte[] hashBytes = userPass;
             PasswordHash hash = new PasswordHash(hashBytes);
             if (!hash.Verify(password))
             {
-                Console.WriteLine("WRNG");
                 return null;
             }
 
-            Console.WriteLine("strange");
 
             return correctUsername;
         }

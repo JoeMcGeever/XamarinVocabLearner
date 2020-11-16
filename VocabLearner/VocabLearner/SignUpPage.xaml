@@ -33,7 +33,22 @@
                     HorizontalOptions="Center"
                     Clicked="SignUp_OnClicked">
                 </Button>
-                
+
+
+                <Image Source="profilePic.png"/>
+
+                <Button Text="Capture"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                   Clicked="Capture_OnClicked">
+                </Button>
+
+                <Button Text="Upload"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    Clicked="SignUp_OnClicked">
+                </Button>
+
             </StackLayout>
 
 

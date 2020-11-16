@@ -25,6 +25,7 @@ namespace VocabLearner.MainViews
             | string.IsNullOrWhiteSpace(translatedWord.Text)) //or translated ones are empty
             {
                 await DisplayAlert("Error!", "Please enter all of your details", "Ok");
+                return;
             }
 
 

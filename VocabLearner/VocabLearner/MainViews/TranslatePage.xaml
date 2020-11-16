@@ -4,10 +4,43 @@
              x:Class="VocabLearner.MainViews.TranslatePage"
              Title="Translate">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Google translate API used here"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout VerticalOptions="Start" Margin="0,50,0,0">
+            
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="Enter the text to translate: "
+                       FontSize="12"
+                       FontAttributes="Bold" />
+                <Entry x:Name ="searchWord" WidthRequest="100"/>
+            </StackLayout>
+            
+            <StackLayout HorizontalOptions="Center">
+                <Label Text="Enter the target language: "
+                       FontSize="12"
+                       FontAttributes="Bold" />
+                <Entry x:Name ="language" WidthRequest="100"/>
+            </StackLayout>
+
+            <Button Text="Translate"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Clicked="Go_clicked">
+            </Button>
+
+            <Label  x:Name="translatedWord"
+                Padding="0,50,0,0"
+                Text="Results will be displayed here "
+                VerticalOptions="Center" 
+                HorizontalOptions="Center"
+                FontSize="22"
+                FontAttributes="Bold"/>
+
+            <Button Text="Add to word bank"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                    Clicked="Add_OnClicked">
+            </Button>
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
