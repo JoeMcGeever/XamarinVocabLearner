@@ -18,10 +18,12 @@ namespace VocabLearner.MainViews
     { 
 
         public string translatedText;
+        private List<(string, string)> languageList;
         public string sourceText;
        
         public TranslatePage()
         {
+            languageList = languageCodes.GetSupportedLanguages(); //fetch the supported languages
             InitializeComponent();
 
         }
@@ -31,9 +33,20 @@ namespace VocabLearner.MainViews
             if ((!string.IsNullOrWhiteSpace(searchWord.Text))
                 && (!string.IsNullOrWhiteSpace(language.Text)))
             {
-                //convert language to language code!!!
+
+                var targetLangCode = language.Text;
+
+
+                foreach(var item in languageList) //convert language to language code!
+                {
+                    if(item.Item1.ToLower()==language.Text.ToLower())
+                    {
+                        targetLangCode = item.Item2;
+                    }
+                }
+
                 sourceText = searchWord.Text;
-                translatedText = TranslateText(searchWord.Text, language.Text);
+                translatedText = TranslateText(searchWord.Text, targetLangCode);
                 translatedWord.Text = translatedText;
             }
 
@@ -47,6 +60,7 @@ namespace VocabLearner.MainViews
             | string.IsNullOrWhiteSpace(translatedWord.Text)) //or translated ones are empty
             {
                 await DisplayAlert("Error!", "Please enter all of your details", "Ok");
+                return;
             }
 
 
