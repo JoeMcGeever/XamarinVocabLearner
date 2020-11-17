@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VocabLearner.Games.QuestionPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Start">
+                <Label Text="QUESTION X"
+                   x:Name="questionNum"
+                   FontSize="22"
+                       FontAttributes="Bold"
+                VerticalOptions="Start" 
+                HorizontalOptions="Center" />
+
+                <Label Text="QUESTION"
+                   x:Name="question"
+                   FontSize="22"
+                       FontAttributes="Bold"
+                HorizontalOptions="Center" />
+            </StackLayout>
+
+
+            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                <Label Text="Option1"
+                   x:Name="option1"
+                       FontAttributes="Bold"
+                        FontSize="22"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+            <Button Text="1"
+                            VerticalOptions="Center"
+                            Clicked="one_OnClicked"/>
+            </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Option2"
+                   x:Name="option2"
+                       FontAttributes="Bold"
+                            FontSize="22"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                <Button Text="2"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            Clicked="two_OnClicked"/>
+            </StackLayout>
+
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Option3"
+                   x:Name="option3"
+                       FontAttributes="Bold"
+                            FontSize="22"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                <Button Text="3"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            Clicked="three_OnClicked"/>
+            </StackLayout>
+
+                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Option4"
+                   x:Name="option4"
+                       FontAttributes="Bold"
+                            FontSize="22"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+                <Button Text="4"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            Clicked="four_OnClicked"/>
+            </StackLayout>
+
+            </StackLayout>
+
+
+
+            <StackLayout Orientation="Vertical" VerticalOptions="End">
+                <Label Text="CORRECT / INCORRECT"
+                   x:Name="answer"
+                       FontAttributes="Bold"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Next"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            Clicked="Next_OnClicked"/>
+                </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

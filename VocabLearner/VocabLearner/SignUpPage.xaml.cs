@@ -25,7 +25,6 @@ namespace VocabLearner
         private void LogIn_OnClicked(object sender, EventArgs e)
         {
             //await Navigation.PushAsync(new SignUpPage());
-            // Perhaps there is a way to deque current page back to previous
             Application.Current.MainPage.Navigation.PopAsync();
         }
 

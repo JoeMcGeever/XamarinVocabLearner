@@ -4,10 +4,25 @@
              x:Class="VocabLearner.MainViews.GamesPage"
              Title="Games">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Bandicoot time :D"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <StackLayout VerticalOptions="Start" Margin="0,50,0,0">
+
+
+                <Label Text="Bandicoot"
+                       FontSize="22"
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold" />
+
+            <Label Text="Test to see what words you remember!"
+                       FontSize="16"
+                       FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   Padding="0,20,0,0"/>
+
+            <Button Text="Play"
+                    Clicked="Play_Clicked">
+                
+                
+                </Button>
+            </StackLayout>
     </ContentPage.Content>
 </ContentPage>

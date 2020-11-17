@@ -21,6 +21,7 @@
     <PackageReference Include="System.Composition" Version="5.0.0" />
     <PackageReference Include="System.Net.Http" Version="4.3.4" />
     <PackageReference Include="System.Net.Requests" Version="4.3.0" />
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
     <PackageReference Include="System.Text.Encodings.Web" Version="5.0.0" />
     <PackageReference Include="System.Text.Json" Version="5.0.0" />
     <PackageReference Include="WebApiContrib.Formatting.Jsonp" Version="3.0.2" />
@@ -42,6 +43,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Games\GamePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Games\QuestionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="MainViews\AddPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
