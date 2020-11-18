@@ -35,18 +35,19 @@
                 </Button>
 
 
-                <Image Source="profilePic.png"/>
-
-                <Button Text="Capture"
-                    VerticalOptions="End"
-                    HorizontalOptions="Center"
-                   Clicked="Capture_OnClicked">
-                </Button>
+                <Image Source="profilePic.png"
+                       x:Name="image"/>
 
                 <Button Text="Upload"
                     VerticalOptions="End"
                     HorizontalOptions="Center"
-                    Clicked="SignUp_OnClicked">
+                    x:Name="pickPhoto">
+                </Button>
+
+                <Button Text="Capture"
+                    VerticalOptions="End"
+                    HorizontalOptions="Center"
+                    x:Name="takePhoto">
                 </Button>
 
             </StackLayout>
