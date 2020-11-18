@@ -38,7 +38,6 @@ namespace VocabLearner
 
             var correctUsername = allPersons.Where(a => (a.username == username)).FirstOrDefault(); //return the user which matches the password as well as the username
 
-
             var userPass = correctUsername.password;
 
 
@@ -53,7 +52,7 @@ namespace VocabLearner
             return correctUsername;
         }
 
-        public async Task<bool> Signup(string username, string password, string profilePic)
+        public async Task<bool> Signup(string username, string password, byte[] profilePic)
         {
 
             //if user already exists

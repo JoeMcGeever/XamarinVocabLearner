@@ -31,6 +31,10 @@ namespace VocabLearner
             get; set;
         }
 
+        public static byte[] profilePic //the current users profilePic
+        {
+            get; set;
+        }
 
         protected override void OnStart()
         {

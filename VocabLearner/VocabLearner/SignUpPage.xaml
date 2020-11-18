@@ -54,22 +54,6 @@
 
 
 
-            <StackLayout Orientation="Vertical" VerticalOptions="End">
-                <Label Text="Already have an account?" HorizontalTextAlignment="Center" FontSize="16" Padding="150,10,150,0"/>
-
-                <Button Text="Log in" BackgroundColor="Red"
-                    Clicked="LogIn_OnClicked">
-                </Button>
-
-            </StackLayout>
-
-
-
-
-
-
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -7,18 +7,17 @@
 
 
         <StackLayout>
-            <StackLayout Orientation="Vertical" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Padding="0,50,0,0">
 
-                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-                    <Label FontSize="16" Padding="30,24,30,0" Text="Welcome"  FontAttributes="Bold"/>
+
+                    <Label FontSize="16" Padding="30,24,30,0" Text="Welcome" x:Name="username"  FontAttributes="Bold"/>
                     
-                     <Label FontSize="16" Padding="30,24,30,0" Text="{Binding username}"  FontAttributes="Bold"/>
-                </StackLayout>
-                
-                
-                
-                
-                
+
+
+
+                <Image Source="profilePic.png"
+                       x:Name="profilePic"/>
+
 
 
             </StackLayout>

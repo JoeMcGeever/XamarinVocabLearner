@@ -47,7 +47,8 @@ namespace VocabLearner
                 if (loggedInUser != null) //if a loggedInUser is present
                 {
                     // set username and profile pic to userdefaults
-                    App.loggedInUser = Convert.ToString(usernameEntry.Text);
+                    App.loggedInUser = Convert.ToString(usernameEntry.Text); //set the current logged in user
+                    App.profilePic = loggedInUser.profilePic; //set te profile pic
                     await Navigation.PushAsync(new HomeTab());
                 }
                 else

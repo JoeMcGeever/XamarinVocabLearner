@@ -9,6 +9,6 @@ namespace VocabLearner.Controller
         public string username { get; set; }
         public byte[] password { get; set; }
 
-        public string profilePic { get; set; }
+        public byte[] profilePic { get; set; }
     }
 }

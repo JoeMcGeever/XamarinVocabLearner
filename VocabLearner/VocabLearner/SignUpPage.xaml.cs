@@ -8,6 +8,8 @@ using Xamarin.Forms;
 using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 using Plugin.Media;
+using Android.Media;
+using System.IO;
 
 namespace VocabLearner
 {
@@ -15,6 +17,7 @@ namespace VocabLearner
     public partial class SignUpPage : ContentPage
     {
 
+        byte[] byteData;
         UserDB usersDatabase = new UserDB();
 
         public SignUpPage()
@@ -28,14 +31,18 @@ namespace VocabLearner
 
                 if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
                 {
-                    await DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
+                    await DisplayAlert("No Camera", "No camera avaialble.", "OK");
                     return;
                 }
 
                 var photo = await Plugin.Media.CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions() { });
 
                 if (photo != null)
-                    image.Source = ImageSource.FromStream(() => { return photo.GetStream();
+                    image.Source = ImageSource.FromStream(() =>
+                    {
+                        byteData = GetImageStreamAsBytes(photo.GetStream()); //convert image to byte to be saved to firebase
+
+                        return photo.GetStream();
                     });
             };
 
@@ -59,6 +66,7 @@ namespace VocabLearner
                     image.Source = ImageSource.FromStream(() =>
                     {
                         var stream = file.GetStream();
+                        byteData = GetImageStreamAsBytes(file.GetStream()); //convert image to byte to be saved to firebase
                         file.Dispose();
                         return stream;
                     });
@@ -67,11 +75,22 @@ namespace VocabLearner
         }
 
 
-        private void LogIn_OnClicked(object sender, EventArgs e)
+
+
+        public byte[] GetImageStreamAsBytes(System.IO.Stream input) //converts the image to byte data to be saved to firebase
         {
-            //await Navigation.PushAsync(new SignUpPage());
-            Application.Current.MainPage.Navigation.PopAsync();
+            var buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
         }
+
 
 
 
@@ -81,8 +100,9 @@ namespace VocabLearner
             && !string.IsNullOrWhiteSpace(passwordEntry.Text)) //or password ones are not empty
             {
 
-
-                if(await usersDatabase.Signup(usernameEntry.Text, passwordEntry.Text, "pig.png")) //save to firebase database here
+    
+               
+                if (await usersDatabase.Signup(usernameEntry.Text, passwordEntry.Text, byteData)) //save to firebase database here
                 {
                     await Application.Current.MainPage.Navigation.PopAsync(); //pop this view off the current navigation stack
                 }
