@@ -26,6 +26,7 @@ namespace VocabLearner.Games
                 await DisplayAlert("Cannot Play!", "You need at least 10 words to play", "Ok");
 
                 await Application.Current.MainPage.Navigation.PopAsync(); //return to prior page
+                return;
             }
 
             await Navigation.PushAsync(new QuestionPage(listOfQuestions)); //navigates to the question page, sending the list of questions with it

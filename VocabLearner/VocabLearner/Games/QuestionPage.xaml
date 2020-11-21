@@ -16,7 +16,8 @@
                    x:Name="question"
                    FontSize="22"
                        FontAttributes="Bold"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center" ></Label>
+
             </StackLayout>
 
 

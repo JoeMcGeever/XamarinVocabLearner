@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,10 +16,15 @@ namespace VocabLearner
 
             username.Text = "Welcome " + App.loggedInUser; //set user logged in details
             profilePicData = App.profilePic; //get profile pic as bytes from app
-             
+
             profilePic.Source = ImageSource.FromStream(() => new MemoryStream(profilePicData)); //set profile pic
         }
 
+        async void OnImageButtonClicked(object sender, EventArgs e)
+        {
+            await profilePic.RotateTo(360, 2000);
+            profilePic.Rotation = 0;
+        }
 
     }
 }

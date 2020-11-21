@@ -55,7 +55,8 @@ namespace VocabLearner.Games
             option2.Text = currentAnswers[1].text; 
             option3.Text = currentAnswers[2].text;
             option4.Text = currentAnswers[3].text;
-            answer.Text = ""; //get rid of the answer.text as it is not needed
+            answer.FadeTo(0, 2000); //fade out answer text
+            //answer.Text = ""; //get rid of the answer.text as it is not needed
         }
 
         private async void one_OnClicked(object sender, EventArgs e)
@@ -74,6 +75,8 @@ namespace VocabLearner.Games
             {
                 answer.Text = "Incorrect! The correct answer was: " + currentRightAnswer;
             }
+            answer.FadeTo(1, 2000); //fade answer text in
+
 
             canPressNext = true;
 
@@ -95,6 +98,7 @@ namespace VocabLearner.Games
             {
                 answer.Text = "Incorrect! The correct answer was: " + currentRightAnswer;
             }
+            answer.FadeTo(1, 2000); //fade answer text in
 
             canPressNext = true;
 
@@ -116,6 +120,8 @@ namespace VocabLearner.Games
             {
                 answer.Text = "Incorrect! The correct answer was: " + currentRightAnswer;
             }
+            answer.FadeTo(1, 2000); //fade answer text in
+
 
             canPressNext = true;
 
@@ -136,6 +142,7 @@ namespace VocabLearner.Games
             {
                 answer.Text = "Incorrect! The correct answer was: " + currentRightAnswer;
             }
+            answer.FadeTo(1, 2000); //fade answer text in
 
             canPressNext = true;
 

@@ -7,16 +7,19 @@
 
 
         <StackLayout>
-            <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" Padding="0,50,0,0">
+            <StackLayout Orientation="Vertical" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
 
 
-                    <Label FontSize="16" Padding="30,24,30,0" Text="Welcome" x:Name="username"  FontAttributes="Bold"/>
-                    
+                    <Label FontSize="26" Padding="0,10,0,0" Text="Welcome" x:Name="username"  FontAttributes="Bold" HorizontalOptions="Center"/>
 
 
 
-                <Image Source="profilePic.png"
-                       x:Name="profilePic"/>
+
+                <ImageButton  Source="profilePic.png"
+                       x:Name="profilePic"
+                              Aspect="AspectFit"
+                              HorizontalOptions="EndAndExpand"
+                              Clicked="OnImageButtonClicked"/>
 
 
 
